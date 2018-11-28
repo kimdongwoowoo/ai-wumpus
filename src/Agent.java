@@ -1,3 +1,4 @@
+
 /*
  * Class that defines the agent.
  *
@@ -55,6 +56,7 @@ class Agent {
 		agentFunction = new AgentFunction(worldSize, location, direction);
 		setDirection(direction);
 	}
+
 	public void setIsDead(boolean dead) {
 		isDead = dead;
 	}
@@ -88,84 +90,101 @@ class Agent {
 		if (nonDeterministicMode == false) {
 
 			if (direction == 'N') {
-				if (location[0]+1 < worldSize) location[0] += 1;
-				else wumpusWorld.setBump(true);
+				if (location[0] + 1 < worldSize)
+					location[0] += 1;
+				else
+					wumpusWorld.setBump(true);
+			} else if (direction == 'E') {
+				if (location[1] + 1 < worldSize)
+					location[1] += 1;
+				else
+					wumpusWorld.setBump(true);
+			} else if (direction == 'S') {
+				if (location[0] - 1 >= 0)
+					location[0] -= 1;
+				else
+					wumpusWorld.setBump(true);
+			} else if (direction == 'W') {
+				if (location[1] - 1 >= 0)
+					location[1] -= 1;
+				else
+					wumpusWorld.setBump(true);
 			}
-			else if (direction == 'E') {
-				if (location[1]+1 < worldSize) location[1] += 1;
-				else wumpusWorld.setBump(true);
-			}
-			else if (direction == 'S') {
-				if (location[0]-1 >= 0) location[0] -= 1;
-				else wumpusWorld.setBump(true);
-			}
-			else if (direction == 'W') {
-				if (location[1]-1 >= 0) location[1] -= 1;
-				else wumpusWorld.setBump(true);
-			}
-		}
-		else {
+		} else {
 
 			char moveDirection = nonDeterministicMove();
 
 			if (direction == 'N') {
 
 				if (moveDirection == 'F') {
-					if (location[0]+1 < worldSize) location[0] += 1;
-					else wumpusWorld.setBump(true);
+					if (location[0] + 1 < worldSize)
+						location[0] += 1;
+					else
+						wumpusWorld.setBump(true);
+				} else if (moveDirection == 'L') {
+					if (location[1] - 1 >= 0)
+						location[1] -= 1;
+					else
+						wumpusWorld.setBump(true);
+				} else if (moveDirection == 'R') {
+					if (location[1] + 1 < worldSize)
+						location[1] += 1;
+					else
+						wumpusWorld.setBump(true);
 				}
-				else if (moveDirection == 'L') {
-					if (location[1]-1 >= 0) location[1] -= 1;
-					else wumpusWorld.setBump(true);
-				}
-				else if (moveDirection == 'R') {
-					if (location[1]+1 < worldSize) location[1] += 1;
-					else wumpusWorld.setBump(true);
-				}
-			}
-			else if (direction == 'E') {
+			} else if (direction == 'E') {
 
 				if (moveDirection == 'F') {
-					if (location[1]+1 < worldSize) location[1] += 1;
-					else wumpusWorld.setBump(true);
+					if (location[1] + 1 < worldSize)
+						location[1] += 1;
+					else
+						wumpusWorld.setBump(true);
+				} else if (moveDirection == 'L') {
+					if (location[0] + 1 < worldSize)
+						location[0] += 1;
+					else
+						wumpusWorld.setBump(true);
+				} else if (moveDirection == 'R') {
+					if (location[0] - 1 >= 0)
+						location[0] -= 1;
+					else
+						wumpusWorld.setBump(true);
 				}
-				else if (moveDirection == 'L') {
-					if (location[0]+1 < worldSize) location[0] += 1;
-					else wumpusWorld.setBump(true);
-				}
-				else if (moveDirection == 'R') {
-					if (location[0]-1 >= 0) location[0] -= 1;
-					else wumpusWorld.setBump(true);
-				}
-			}
-			else if (direction == 'S') {
+			} else if (direction == 'S') {
 
 				if (moveDirection == 'F') {
-					if (location[0]-1 >= 0) location[0] -= 1;
-					else wumpusWorld.setBump(true);
+					if (location[0] - 1 >= 0)
+						location[0] -= 1;
+					else
+						wumpusWorld.setBump(true);
+				} else if (moveDirection == 'L') {
+					if (location[1] + 1 < worldSize)
+						location[1] += 1;
+					else
+						wumpusWorld.setBump(true);
+				} else if (moveDirection == 'R') {
+					if (location[1] - 1 >= 0)
+						location[1] -= 1;
+					else
+						wumpusWorld.setBump(true);
 				}
-				else if (moveDirection == 'L') {
-					if (location[1]+1 < worldSize) location[1] += 1;
-					else wumpusWorld.setBump(true);
-				}
-				else if (moveDirection == 'R') {
-					if (location[1]-1 >= 0) location[1] -= 1;
-					else wumpusWorld.setBump(true);
-				}
-			}
-			else if (direction == 'W') {
+			} else if (direction == 'W') {
 
 				if (moveDirection == 'F') {
-					if (location[1]-1 >= 0) location[1] -= 1;
-					else wumpusWorld.setBump(true);
-				}
-				else if (moveDirection == 'L') {
-					if (location[0]-1 >= 0) location[0] -= 1;
-					else wumpusWorld.setBump(true);
-				}
-				else if (moveDirection == 'R') {
-					if (location[0]+1 < worldSize) location[0] += 1;
-					else wumpusWorld.setBump(true);
+					if (location[1] - 1 >= 0)
+						location[1] -= 1;
+					else
+						wumpusWorld.setBump(true);
+				} else if (moveDirection == 'L') {
+					if (location[0] - 1 >= 0)
+						location[0] -= 1;
+					else
+						wumpusWorld.setBump(true);
+				} else if (moveDirection == 'R') {
+					if (location[0] + 1 < worldSize)
+						location[0] += 1;
+					else
+						wumpusWorld.setBump(true);
 				}
 			}
 		}
@@ -178,23 +197,43 @@ class Agent {
 
 		switch (rand.nextInt(10)) {
 
-			case 0: moveDir = 'F'; break;
-			case 1: moveDir = 'F'; break;
-			case 2: moveDir = 'F'; break;
-			case 3: moveDir = 'F'; break;
-			case 4: moveDir = 'F'; break;
-			case 5: moveDir = 'F'; break;
-			case 6: moveDir = 'F'; break;
-			case 7: moveDir = 'F'; break;
-			case 8: moveDir = 'L'; break;
-			case 9: moveDir = 'R'; break;
+		case 0:
+			moveDir = 'F';
+			break;
+		case 1:
+			moveDir = 'F';
+			break;
+		case 2:
+			moveDir = 'F';
+			break;
+		case 3:
+			moveDir = 'F';
+			break;
+		case 4:
+			moveDir = 'F';
+			break;
+		case 5:
+			moveDir = 'F';
+			break;
+		case 6:
+			moveDir = 'F';
+			break;
+		case 7:
+			moveDir = 'F';
+			break;
+		case 8:
+			moveDir = 'L';
+			break;
+		case 9:
+			moveDir = 'R';
+			break;
 		}
 
 		return moveDir;
 	}
 
-	public boolean isArrow(){
-		return (numArrows==1?true:false);
+	public boolean isArrow() {
+		return (numArrows == 1 ? true : false);
 	}
 
 	public boolean shootArrow() {
@@ -202,8 +241,7 @@ class Agent {
 		if (numArrows == 1) {
 			numArrows -= 1;
 			return true;
-		}
-		else {
+		} else {
 			return false;
 		}
 
@@ -211,29 +249,41 @@ class Agent {
 
 	public void turnRight() {
 
-		if (direction == 'N') setDirection('E');
-		else if (direction == 'E') setDirection('S');
-		else if (direction == 'S') setDirection('W');
-		else if (direction == 'W') setDirection('N');
+		if (direction == 'N')
+			setDirection('E');
+		else if (direction == 'E')
+			setDirection('S');
+		else if (direction == 'S')
+			setDirection('W');
+		else if (direction == 'W')
+			setDirection('N');
 
 	}
 
 	public void turnLeft() {
 
-		if (direction == 'N') setDirection('W');
-		else if (direction == 'E') setDirection('N');
-		else if (direction == 'S') setDirection('E');
-		else if (direction == 'W') setDirection('S');
+		if (direction == 'N')
+			setDirection('W');
+		else if (direction == 'E')
+			setDirection('N');
+		else if (direction == 'S')
+			setDirection('E');
+		else if (direction == 'W')
+			setDirection('S');
 
 	}
 
 	public void setDirection(char newDirection) {
 		direction = newDirection;
 
-		if (direction == 'N') agentIcon = 'A';
-		if (direction == 'E') agentIcon = '>';
-		if (direction == 'S') agentIcon = 'V';
-		if (direction == 'W') agentIcon = '<';
+		if (direction == 'N')
+			agentIcon = 'A';
+		if (direction == 'E')
+			agentIcon = '>';
+		if (direction == 'S')
+			agentIcon = 'V';
+		if (direction == 'W')
+			agentIcon = '<';
 
 	}
 

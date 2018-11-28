@@ -45,10 +45,12 @@ class TransferPercept {
 	public boolean getScream() {
 		return environment.getScream();
 	}
-	public boolean isArrow(){
+
+	public boolean isArrow() {
 		return environment.isArrow();
 	}
-	public char getDirection(){
+
+	public char getDirection() {
 		return environment.getAgentDirection();
 	}
 }

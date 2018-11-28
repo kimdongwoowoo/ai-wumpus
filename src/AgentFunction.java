@@ -62,7 +62,7 @@ class AgentFunction {
 //
 //
 //
-		// return actionTable[0];
+		 return actionTable[0];
 	}
 
 
