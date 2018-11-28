@@ -55,14 +55,9 @@ class AgentFunction {
 	public int process(TransferPercept tp)
 	{
 		// build your own intelligent agent
-//
-//
-//
-//		do something
-//
-//
-//
-		 return actionTable[0];
+		Random rn=new Random();
+		return actionTable[rn.nextInt(8)];
+	
 	}
 
 
