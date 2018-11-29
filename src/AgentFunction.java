@@ -1,3 +1,4 @@
+
 /*
  * Class that defines the agent function.
  *
@@ -34,8 +35,8 @@ class AgentFunction {
 	private boolean stench;
 	private boolean scream;
 	private Random rand;
-	public AgentFunction(int worldSize, int[] location, char direction)
-	{
+
+	public AgentFunction(int worldSize, int[] location, char direction) {
 		// for illustration purposes; you may delete all code
 		// inside this constructor when implementing your
 		// own intelligent agent
@@ -52,14 +53,17 @@ class AgentFunction {
 		actionTable[7] = Action.SHOOT;
 	}
 
-	public int process(TransferPercept tp)
-	{
+	public int process(TransferPercept tp) {
 		// build your own intelligent agent
-		Random rn=new Random();
-		return actionTable[rn.nextInt(8)];
-	
-	}
+		Random rn = new Random();
+		if (tp.getGlitter())
+			return Action.GRAB;
+		
+		else{
+			return actionTable[rn.nextInt(6)];
+		}
 
+	}
 
 	// public method to return the agent's name
 	// do not remove this method

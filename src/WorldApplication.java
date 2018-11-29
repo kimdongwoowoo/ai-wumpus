@@ -129,7 +129,7 @@ class WorldApplication {
 		File inputFile=new File(gameboard);
 		BufferedReader br=new BufferedReader(new FileReader(inputFile));
 		
-		for(int i=0;i<size;++i) {
+		for(int i=size-1;i>=0;--i) {
 			br.readLine();	
 			for(int j=0;j<2;++j) {
 				String str=br.readLine();
