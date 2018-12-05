@@ -133,7 +133,7 @@ class WorldApplication {
 			br.readLine();	
 			for(int j=0;j<2;++j) {
 				String str=br.readLine();
-				for(int k=0;k<size;++k) {
+				for(int k=0;k<size; ++k) {
 					pan[i][k][j*2]=str.charAt(k*6+2);
 					pan[i][k][j*2+1]=str.charAt(k*6+4);
 					

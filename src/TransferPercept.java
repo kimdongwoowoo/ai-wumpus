@@ -15,7 +15,6 @@
  * The University of Texas at Arlington.
  *
  */
-
 class TransferPercept {
 
 	private Environment environment;
